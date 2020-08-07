@@ -1,0 +1,172 @@
+$date
+  Fri Aug  7 13:12:37 2020
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module testbench $end
+$var reg 1 ! a $end
+$var reg 1 " b $end
+$var reg 1 # c $end
+$var reg 1 $ d $end
+$var reg 1 % e $end
+$var reg 1 & f $end
+$var reg 5 ' g[4:0] $end
+$scope module dut $end
+$var reg 1 ( a $end
+$var reg 1 ) b $end
+$var reg 1 * c $end
+$var reg 1 + d $end
+$var reg 1 , e $end
+$var reg 1 - f $end
+$var reg 5 . g[4:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+0&
+b00000 '
+0(
+0)
+0*
+0+
+0,
+0-
+b00000 .
+#10000000
+1$
+1%
+1+
+1,
+#20000000
+1#
+0$
+0%
+b00010 '
+1*
+0+
+0,
+b00010 .
+#30000000
+1$
+1%
+1+
+1,
+#40000000
+1"
+0#
+0$
+1&
+b00100 '
+1)
+0*
+0+
+1-
+b00100 .
+#50000000
+1$
+0&
+1+
+0-
+#60000000
+1#
+0$
+1&
+b00110 '
+1*
+0+
+1-
+b00110 .
+#70000000
+1$
+1+
+#80000000
+1!
+0"
+0#
+0$
+0%
+0&
+b01001 '
+1(
+0)
+0*
+0+
+0,
+0-
+b01001 .
+#90000000
+1$
+1%
+1+
+1,
+#100000000
+1#
+0$
+0%
+b01011 '
+1*
+0+
+0,
+b01011 .
+#110000000
+1$
+1%
+1+
+1,
+#120000000
+1"
+0#
+0$
+1&
+b01101 '
+1)
+0*
+0+
+1-
+b01101 .
+#130000000
+1$
+0&
+1+
+0-
+#140000000
+1#
+0$
+1&
+b01111 '
+1*
+0+
+1-
+b01111 .
+#150000000
+1$
+1+
+#160000000
+0!
+0"
+0#
+0$
+0%
+0&
+b00000 '
+0(
+0)
+0*
+0+
+0,
+0-
+b00000 .
+#170000000

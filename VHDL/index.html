@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8"> 
+<script src="http://wavedrom.com/skins/default.js" type="text/javascript"></script>
+<script src="http://wavedrom.com/wavedrom.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function createwf(){
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", "code/waveform.wf", false);
+      rawFile.onreadystatechange = function () {
+        if(rawFile.readyState === 4) {
+          if(rawFile.status === 200 || rawFile.status == 0) {
+            var allText = rawFile.responseText;
+            //alert(allText);
+            var div = document.getElementById('waveform'); 
+            div.innerHTML = '<b>Diagrama de Tiempos</b><br><script type="WaveDrom">' + allText + "<\/script>";
+            //div.innerHTML += allText ;
+            WaveDrom.ProcessAll();
+          }
+        }
+      }
+      rawFile.send(null);
+      
+      return false;
+    }
+    function createdesign(nameF){
+         var code_s = document.forms["code"]["design"].value;
+         var code_g = document.forms["code"]["golden"].value;
+         var code_t = document.forms["code"]["testbench"].value;
+        code_s =code_s.replace(/\n\r?/g, '<br>');
+        code_g =code_g.replace(/\n\r?/g, '<br>');
+        code_t =code_t.replace(/\n\r?/g, '<br>');
+         if (window.XMLHttpRequest) {            // code for IE7+, Firefox, Chrome, Opera, Safari
+           xmlhttp = new XMLHttpRequest();
+         } else {        // code for IE6, IE5
+           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+         }
+         xmlhttp.onreadystatechange = function() {
+           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	     createwf();
+           }
+         }
+         xmlhttp.open("POST","program.php",true);
+         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         xmlhttp.send("g="+escapeHtml(code_g)+"&c="+escapeHtml(code_s)+"&t="+escapeHtml(code_t));
+      return false;
+    }
+function escapeHtml(text) {
+  var map = {
+    '&': '%26amp;',
+    '<': '%26lt;',
+    '>': '%26gt;',
+    '"': '%26quot;',
+    "'": '%27',
+    '{': '%7b',
+    '#': '%23',
+    '+': '%2b'
+  };
+
+  return text.replace(/[&<>"'#{+]/g, function(m) { return map[m]; });
+}
+
+  </script>
+<body onload="WaveDrom.ProcessAll()">
+	<h1>Evaluando VHDL</h1>
+  <div id="waveform" name="waveform">
+  </div>
+  <form id="code" name="code" onsubmit="return createdesign('design')">
+    <input type="submit" value="Submit">
+    <br>
+    <b>Design:</b><br>
+    <textarea name="design" rows="15" cols="100"></textarea>
+    <br><b>Testbench:</b><br>
+    <textarea name="testbench" rows="15" cols="100"></textarea>
+    <br><b>Golden Model:</b><br>
+    <textarea name="golden" rows="15" cols="100"></textarea>
+  </form> 
+</body>
+</html>
