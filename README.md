@@ -4,3 +4,7 @@ Incluye el código de las páginas creadas para la comparación y visualización
 Funcionamiento en Verilog:
 
 ![](gifs/verilog_v0.gif)
+
+Funcionamiento en VHDL:
+
+![](gifs/vhdl_v0.gif)
